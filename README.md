@@ -75,7 +75,7 @@ app.get('/callback', function (req, res) {
 });
 
 app.get('/', function (req, res) {
-  res.send('Hello World');
+  res.send('Hello<br><a href="/auth">Log in with Github</a>');
 });
 
 app.listen(3000);
@@ -173,7 +173,7 @@ var credentials = {
 var oauth2 = require('simple-oauth2')(credentials);
 
 // Get the access token object for the client
-oauth2.Client.getToken(saveToken);
+oauth2.client.getToken({}, saveToken);
 
 // Save the access token
 function saveToken(error, result) {
